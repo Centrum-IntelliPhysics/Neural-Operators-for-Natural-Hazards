@@ -19,3 +19,5 @@ wind/fno/uz/Results/.ipynb_checkpoints/loss_history-checkpoint.png
 /wind/deeponet+fno/uz/Results
 /wind/deeponet+fno/ux/Results
 /wind/deeponet+fno/uy/Results
+.DS_Store
+.ipynb_checkpoints/
