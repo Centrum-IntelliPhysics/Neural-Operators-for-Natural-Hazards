@@ -226,7 +226,7 @@ for ep in range(epochs):
             test_mse += F.mse_loss(out, y).item()
 
     train_mse /= len(train_loader)
-    test_mse /= num_test
+    test_mse /= ntest
 
     train_error[ep,0] = train_mse
     test_error[ep,0] = test_mse
