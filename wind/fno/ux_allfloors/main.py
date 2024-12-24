@@ -169,27 +169,27 @@ train_index = index['train'][0,:].T
 test_index = index['test'][0,:].T
 
 reader = MatReader('../../data/windData1.mat')
-x1 = reader.read_field('f')[:,0:-cutoff][:,::rtime, ::rstoreys]
+x1 = reader.read_field('f')[:,cutoff::][:,::rtime, ::rstoreys]
 y1 = reader.read_field('ux')[:,cutoff::][:,::rtime, ::rstoreys]
 
 reader = MatReader('../../data/windData2.mat')
-x2 = reader.read_field('f')[:,0:-cutoff][:,::rtime, ::rstoreys]
+x2 = reader.read_field('f')[:,cutoff::][:,::rtime, ::rstoreys]
 y2 = reader.read_field('ux')[:,cutoff::][:,::rtime, ::rstoreys]
 
 reader = MatReader('../../data/windData3.mat')
-x3 = reader.read_field('f')[:,0:-cutoff][:,::rtime, ::rstoreys]
+x3 = reader.read_field('f')[:,cutoff::][:,::rtime, ::rstoreys]
 y3 = reader.read_field('ux')[:,cutoff::][:,::rtime, ::rstoreys]
 
 reader = MatReader('../../data/windData4.mat')
-x4 = reader.read_field('f')[:,0:-cutoff][:,::rtime, ::rstoreys]
+x4 = reader.read_field('f')[:,cutoff::][:,::rtime, ::rstoreys]
 y4 = reader.read_field('ux')[:,cutoff::][:,::rtime, ::rstoreys]
 
 reader = MatReader('../../data/windData5.mat')
-x5 = reader.read_field('f')[:,0:-cutoff][:,::rtime, ::rstoreys]
+x5 = reader.read_field('f')[:,cutoff::][:,::rtime, ::rstoreys]
 y5 = reader.read_field('ux')[:,cutoff::][:,::rtime, ::rstoreys]
 
 reader = MatReader('../../data/windData6.mat')
-x6 = reader.read_field('f')[:,0:-cutoff][:,::rtime, ::rstoreys]
+x6 = reader.read_field('f')[:,cutoff::][:,::rtime, ::rstoreys]
 y6 = reader.read_field('ux')[:,cutoff::][:,::rtime, ::rstoreys]
 
 x = torch.cat((x1, x2, x3, x4, x5, x6), axis =0)
