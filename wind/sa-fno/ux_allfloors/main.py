@@ -140,6 +140,13 @@ class PARAM(nn.Module):
         self.lam = nn.Parameter(torch.ones(dim, sstorey))
         def forward(self):
             pass
+
+def exp_mask(lam):
+    return torch.exp(lam)
+
+def clip_weights(model_param):
+    with torch.no_grad():
+        model_param.lam.data = torch.clamp(model_param.lam.data, min=-5, max=5)        
 ################################################################
 #  configurations
 ################################################################
@@ -176,27 +183,27 @@ train_index = index['train'][0,:].T
 test_index = index['test'][0,:].T
 
 reader = MatReader('../../data/windData1.mat')
-x1 = reader.read_field('f')[:,cutoff::][:,::rtime, ::rstoreys]
+x1 = reader.read_field('f')[:,0:-cutoff][:,::rtime, ::rstoreys]
 y1 = reader.read_field('ux')[:,cutoff::][:,::rtime, ::rstoreys]
 
 reader = MatReader('../../data/windData2.mat')
-x2 = reader.read_field('f')[:,cutoff::][:,::rtime, ::rstoreys]
+x2 = reader.read_field('f')[:,0:-cutoff][:,::rtime, ::rstoreys]
 y2 = reader.read_field('ux')[:,cutoff::][:,::rtime, ::rstoreys]
 
 reader = MatReader('../../data/windData3.mat')
-x3 = reader.read_field('f')[:,cutoff::][:,::rtime, ::rstoreys]
+x3 = reader.read_field('f')[:,0:-cutoff][:,::rtime, ::rstoreys]
 y3 = reader.read_field('ux')[:,cutoff::][:,::rtime, ::rstoreys]
 
 reader = MatReader('../../data/windData4.mat')
-x4 = reader.read_field('f')[:,cutoff::][:,::rtime, ::rstoreys]
+x4 = reader.read_field('f')[:,0:-cutoff][:,::rtime, ::rstoreys]
 y4 = reader.read_field('ux')[:,cutoff::][:,::rtime, ::rstoreys]
 
 reader = MatReader('../../data/windData5.mat')
-x5 = reader.read_field('f')[:,cutoff::][:,::rtime, ::rstoreys]
+x5 = reader.read_field('f')[:,0:-cutoff][:,::rtime, ::rstoreys]
 y5 = reader.read_field('ux')[:,cutoff::][:,::rtime, ::rstoreys]
 
 reader = MatReader('../../data/windData6.mat')
-x6 = reader.read_field('f')[:,cutoff::][:,::rtime, ::rstoreys]
+x6 = reader.read_field('f')[:,0:-cutoff][:,::rtime, ::rstoreys]
 y6 = reader.read_field('ux')[:,cutoff::][:,::rtime, ::rstoreys]
 
 x = torch.cat((x1, x2, x3, x4, x5, x6), axis =0)
@@ -241,10 +248,10 @@ test_loader = torch.utils.data.DataLoader(torch.utils.data.TensorDataset(x_test,
 # model
 model = FNO1d(modes, width)#.cuda()
 model_param = PARAM(stime)
-print("Number of trainable parameters = ", count_params(model))
 sub_model_params = [{
-        "params": model_param.parameters(), "weight_decay": 1e-6, "lr": -1e-2
-    }]
+    "params": model_param.parameters(), 
+    "weight_decay": 1e-6, 
+    "lr": 1e-2}]
 
 ################################################################
 # training and evaluation
@@ -252,6 +259,7 @@ sub_model_params = [{
 optimizer1 = Adam(model.parameters(), lr=learning_rate, weight_decay=1e-4)
 optimizer2 = torch.optim.Adam(sub_model_params)
 scheduler = torch.optim.lr_scheduler.StepLR(optimizer1, step_size=step_size, gamma=gamma)
+scheduler_lambda = torch.optim.lr_scheduler.ExponentialLR(optimizer2, gamma=0.95)
 start_time = time.time()
 myloss = LpLoss(size_average=True)
 
@@ -272,7 +280,10 @@ for ep in range(epochs):
         optimizer2.zero_grad()
         out1 = model(x)
         lamb = model_param.lam
-        loss = torch.sum(torch.mean(torch.einsum('ijk,jk->ijk',torch.square(out1 - y1),lamb**2), dim=0))
+        mask = exp_mask(lamb)
+        reg_term = 0.001 * torch.mean(mask)
+        loss = torch.sum(torch.mean(torch.einsum('ijk,jk->ijk', torch.square(out1 - y1), mask), dim=0)) + reg_term
+        # loss = torch.sum(torch.mean(torch.einsum('ijk,jk->ijk',torch.square(out1 - y1),lamb**2), dim=0))
         loss.backward()
         y1 = y1_normalizer.decode(y1)
         out1 = y1_normalizer.decode(out1)
@@ -282,8 +293,10 @@ for ep in range(epochs):
         optimizer2.step()
         train_mse += loss.item()
         train_l2 += l2.item()
+        clip_weights(model_param)
 
     scheduler.step()
+    scheduler_lambda.step()
     model.eval()
     test_l2 = 0.0
     with torch.no_grad():
