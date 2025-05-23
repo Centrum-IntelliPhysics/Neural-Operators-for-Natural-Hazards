@@ -46,9 +46,9 @@ cd neural-operators-hazard-response
 If you use this code or data in your work, please cite:
 
 @article{goswami2024neural,
-  title={Neural Operators for Stochastic Modeling of Nonlinear Structural System Response to Natural Hazards},
-  author={Goswami, Somdatta and Giovanis, Dimitris and Li, Bowei and Spence, Seymour and Shields, Michael D},
-  journal={arXiv preprint arXiv:2502.11279},
+  title={Neural Operators for Stochastic Modeling of Nonlinear Structural System Response to Natural Hazards},\\
+  author={Goswami, Somdatta and Giovanis, Dimitris and Li, Bowei and Spence, Seymour and Shields, Michael D},\\
+  journal={arXiv preprint arXiv:2502.11279},\\
   year={2024}
 }
 
