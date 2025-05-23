@@ -1,6 +1,4 @@
-<p align="center">
 # Neural Operators for Stochastic Modeling of System Response to Natural Hazards
-</p>
 
 **[Somdatta Goswami](https://scholar.google.com/citations?user=GaKrpSkAAAAJ&hl=en), [Dimitris Giovanis](https://scholar.google.com/citations?user=dnFLyp4AAAAJ&hl=en), [Bowei Li](https://scholar.google.com/citations?user=MDVtPqwAAAAJ&hl=en), [Seymour Spence](https://scholar.google.com/citations?user=gDH80t0AAAAJ), [Michael D. Shields](https://scholar.google.com/citations?user=hc85Ll0AAAAJ)**
 
