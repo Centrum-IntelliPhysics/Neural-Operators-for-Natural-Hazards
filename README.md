@@ -12,14 +12,9 @@
 
 ---
 
-## 📝 Overview
+## Overview
 
-This repository contains the code and data for the paper:
-
-> **"Neural Operators for Stochastic Modeling of Nonlinear Structural System Response to Natural Hazards"**  
-> [arXiv:2502.11279](https://arxiv.org/abs/2502.11279)
-
-We propose and evaluate **physics-informed neural operator frameworks** to model stochastic response of nonlinear structural systems under seismic and wind excitations. The approach is benchmarked against traditional simulators and surrogate models, achieving high accuracy and generalizability under uncertainty.
+We propose and evaluate **=neural operator frameworks** to model stochastic response of nonlinear structural systems under seismic and wind excitations. The approach is benchmarked against traditional simulators and surrogate models, achieving high accuracy and generalizability under uncertainty.
 
 ---
 
