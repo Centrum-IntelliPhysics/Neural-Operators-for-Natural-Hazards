@@ -40,6 +40,8 @@ Clone the repo and set up the environment:
 ```bash
 git clone https://github.com/YOUR-USERNAME/neural-operators-hazard-response.git
 cd neural-operators-hazard-response
+```
+---
 
 ## Citation
 
