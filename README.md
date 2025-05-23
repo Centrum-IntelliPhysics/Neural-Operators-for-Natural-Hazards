@@ -14,7 +14,7 @@
 
 ## Overview
 
-We propose and evaluate **=neural operator frameworks** to model stochastic response of nonlinear structural systems under seismic and wind excitations. The approach is benchmarked against traditional simulators and surrogate models, achieving high accuracy and generalizability under uncertainty.
+We propose and evaluate **neural operator frameworks** (self-adaptive FNO and DeepFNOnet)to model stochastic response of nonlinear structural systems under seismic and wind excitations. The approach is benchmarked against traditional simulators and surrogate models, achieving high accuracy and generalizability under uncertainty.
 
 ---
 
