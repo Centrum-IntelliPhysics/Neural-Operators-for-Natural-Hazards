@@ -20,16 +20,14 @@ We propose and evaluate **neural operator frameworks** (self-adaptive FNO and De
 
 ## Data Access
 
-You can download the dataset used in this study from the link below:
-
-**[Download Data](https://livejohnshopkins-my.sharepoint.com/:f:/g/personal/sgoswam4_jh_edu/ElqEfANCWC5BrvojtY_vCHoBF5T_3ZtnVxyQUs3UMDuGVQ?e=OBqf1s)**
+You can download the dataset used in this study from the link below: **[Download Data](https://livejohnshopkins-my.sharepoint.com/:f:/g/personal/sgoswam4_jh_edu/ElqEfANCWC5BrvojtY_vCHoBF5T_3ZtnVxyQUs3UMDuGVQ?e=OBqf1s)**
 
 Contents:
 - `raw_data/`: OpenSees simulation outputs (earthquake and wind).
 - `preprocessed_data/`: Ready-to-use data for model training and testing.
 - `additional_results/`: Results related to DeepFNO on wind datasets.
-Preprocessing scripts are provided in `scripts/preprocess/`.
-For detailed results and visualizations, refer to: data/additional_results/ for DeepFNO wind case study.
+-  Preprocessing scripts are provided in `scripts/preprocess/`.
+-  For detailed results and visualizations, refer to: data/additional_results/ for DeepFNO wind case study.
 
 ---
 
