@@ -56,4 +56,4 @@ If you use this code or data in your work, please cite:
   year={2024}
 }
 ```
-Contact: For questions please email Somdatta Goswami (sgoswam4[at]jhu.edu)
+Contact: For questions please email Somdatta Goswami (somdatta[at]jhu.edu)
