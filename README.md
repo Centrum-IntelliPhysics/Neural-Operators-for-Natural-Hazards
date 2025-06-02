@@ -31,7 +31,7 @@ Contents:
 - `preprocessed_data/`: Ready-to-use data for model training and testing.
 - `additional_results/`: Results related to DeepFNO on wind datasets.
 -  Preprocessing scripts are provided in `scripts/preprocess/`.
--  For detailed results and visualizations, refer to: data/additional_results/ for DeepFNO wind case study.
+-  For results and visualizations of the DeepONet+FNO in the wind example, refer to: data/additional_results/.
 
 ---
 
