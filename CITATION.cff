@@ -1,0 +1,64 @@
+cff-version: 1.2.0
+title: "Neural operators for stochastic modeling of nonlinear structural system response to natural hazards"
+message: "If you use this software, please cite both the software and the associated publication."
+type: software
+
+authors:
+  - family-names: Goswami
+    given-names: Somdatta
+    affiliation: "Johns Hopkins University"
+  - family-names: Giovanis
+    given-names: Dimitris G.
+    affiliation: "Johns Hopkins University"
+  - family-names: Li
+    given-names: Bowei
+    affiliation: "Texas Tech University"
+  - family-names: Spence
+    given-names: Seymour M.J.
+    affiliation: "University of Michigan"
+  - family-names: Shields
+    given-names: Michael D.
+    affiliation: "Johns Hopkins University"
+
+version: "1.0"
+date-released: 2026-03-28
+
+repository-code: "https://github.com/Centrum-IntelliPhysics/Neural-Operators-for-Natural-Hazards"
+
+license: MIT
+
+keywords:
+  - ODE emulator
+  - Nonlinear dynamic response metamodeling
+  - Natural hazards
+  - DeepONet
+  - FNO
+
+abstract: >-
+  We propose and evaluate neural operator frameworks (self-adaptive FNO and DeepFNOnet)to model stochastic response of 
+  nonlinear structural systems under seismic and wind excitations. The approach is benchmarked against traditional simulators 
+  and surrogate models, achieving high accuracy and generalizability under uncertainty.
+
+preferred-citation:
+  type: article
+  title: "Neural operators for stochastic modeling of nonlinear structural system response to natural hazards"
+  authors:
+  - family-names: Goswami
+    given-names: Somdatta
+    affiliation: "Johns Hopkins University"
+  - family-names: Giovanis
+    given-names: Dimitris G.
+    affiliation: "Johns Hopkins University"
+  - family-names: Li
+    given-names: Bowei
+    affiliation: "Texas Tech University"
+  - family-names: Spence
+    given-names: Seymour M.J.
+    affiliation: "University of Michigan"
+  - family-names: Shields
+    given-names: Michael D.
+    affiliation: "Johns Hopkins University"
+  journal: "Engineering Structures"
+  year: 2025
+  doi: "10.1016/j.engstruct.2025.121284"
+  url: "https://www.sciencedirect.com/science/article/pii/S014102962501675X"
